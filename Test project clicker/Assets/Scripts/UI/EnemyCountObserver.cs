@@ -5,7 +5,7 @@ using System;
 
 public class EnemyCountObserver : MonoBehaviour
 {
-    public Action<int> OnEnemyCountChanged;
+    public event Action<int> OnEnemyCountChanged;
 
     [SerializeField] private Spawner _enemySpawner;
 

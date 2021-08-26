@@ -13,6 +13,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.742337, y: 6.1635423, z: 2.9305296}
   m_Center: {x: 0.043794155, y: 3.1173327, z: -0.4223752}
+--- !u!114 &-7739604147848004532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454322323877506684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bec82bdd4c61214ba9f2134aa250ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hitAnimationTrigger: Dizzy
+  _deathParticle: {fileID: 5243632583278705240, guid: 82f55d6c70806304b86e5c43a711f2d0, type: 3}
 --- !u!114 &2817027862818014579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,9 +66,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9a989d787491b44be83007092f18b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions:
-  - {fileID: 5486621285394776858}
-  _animationTrigger: Idle
+  Transitions: []
+  AnimationTriger: 
 --- !u!114 &4434240034787344846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,9 +80,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f9fddec98c1bd4189842ecfb738187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions:
-  - {fileID: 3196344587956869251}
-  _animationTrigger: Run
+  Transitions: []
+  AnimationTriger: Dizzy
 --- !u!114 &5486621285394776858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,8 +124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 6
   _scoreReward: 6
-  _hitAnimationTrigger: Dizzy
-  _deathParticle: {fileID: 5243632583278705240, guid: 82f55d6c70806304b86e5c43a711f2d0, type: 3}
 --- !u!195 &9215939025081854411
 NavMeshAgent:
   m_ObjectHideFlags: 0

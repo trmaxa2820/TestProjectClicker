@@ -11,6 +11,8 @@ public class EnemyIndicator : MonoBehaviour
     [SerializeField] private Spawner _observerSpawner;
     [SerializeField] private float _multiplyDirectionRect;
 
+    private Coroutine _currentStartedCorotine;
+
     private void OnEnable()
     {
         _observerSpawner.OnEnemySpawn += ShowIndicatorOnEnemy;
@@ -19,21 +21,6 @@ public class EnemyIndicator : MonoBehaviour
     private void OnDisable()
     {
         _observerSpawner.OnEnemySpawn -= ShowIndicatorOnEnemy;
-    }
-
-    private Coroutine _currentStartedCorotine;
-
-    private void ShowIndicatorOnEnemy(Enemy enemy)
-    {
-        if (enemy == null)
-            return;
-
-        Vector3 mainCameraPozition  = Camera.main.transform.position;
-        Vector3 enemyPozition = enemy.transform.position;
-
-        Vector3 direction = new Vector3(enemyPozition.x - mainCameraPozition.x, enemyPozition.z - mainCameraPozition.z, 0).normalized * _multiplyDirectionRect;
-
-        ShowIndicator(direction);
     }
 
     public void ShowIndicator(Vector3 uiPozition)
@@ -47,9 +34,22 @@ public class EnemyIndicator : MonoBehaviour
         {
             StopCoroutine(_currentStartedCorotine);
         }
-            
+
         _currentStartedCorotine = StartCoroutine(ShowOnTime());
 
+    }
+
+    private void ShowIndicatorOnEnemy(Enemy enemy)
+    {
+        if (enemy == null)
+            return;
+
+        Vector3 mainCameraPozition  = Camera.main.transform.position;
+        Vector3 enemyPozition = enemy.transform.position;
+
+        Vector3 direction = new Vector3(enemyPozition.x - mainCameraPozition.x, enemyPozition.z - mainCameraPozition.z, 0).normalized * _multiplyDirectionRect;
+
+        ShowIndicator(direction);
     }
 
     private IEnumerator ShowOnTime()

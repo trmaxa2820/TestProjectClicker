@@ -6,37 +6,24 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider),typeof(Animator))]
 public class Enemy : MonoBehaviour
 {
-    public UnityAction<Enemy> OnEnemyDied;
+    public event UnityAction<Enemy> OnEnemyDied;
+    public event UnityAction OnHealthChanged;
 
     [SerializeField] private int _health;
     [SerializeField] private int _scoreReward;
-    [SerializeField] private string _hitAnimationTrigger;
-    [SerializeField] private ParticleSystem _deathParticle;
 
     private List<Transform> _targets = new List<Transform>();
-    private Animator _animator;
-
-    private void Awake()
-    {
-        _animator = GetComponent<Animator>();
-    }
 
     public void TakeDamage(int damage)
     {
         _health -= damage;
-
-        _animator.SetTrigger(_hitAnimationTrigger);
+        OnHealthChanged?.Invoke();
 
         if (_health <= 0)
         {
             _health = 0;
             OnEnemyDied?.Invoke(this);
             PlayerScore.Instance.RaiseScore(_scoreReward);
-
-            ParticleSystem deathParticle = Instantiate(_deathParticle, transform.position, Quaternion.identity);
-            deathParticle.Play();
-            Destroy(deathParticle.gameObject, deathParticle.main.duration);
-
             Destroy(this.gameObject);
         }
             

@@ -9,6 +9,11 @@ public class EnemyStateMachine : MonoBehaviour
 
     private State _currentState;
 
+    private void Start()
+    {
+        ResetMachine();
+    }
+
     public void Update()
     {
         if (_currentState == null)
@@ -23,11 +28,7 @@ public class EnemyStateMachine : MonoBehaviour
         
     }
 
-    private void Start()
-    {
-        ResetMachine();    
-    }
-
+    
     public void ResetMachine()
     {
         Transit(_startState);

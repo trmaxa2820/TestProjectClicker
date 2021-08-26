@@ -5,11 +5,11 @@ using UnityEngine.Events;
 
 public class Spawner : MonoBehaviour
 {
+    public event UnityAction<Enemy> OnEnemySpawn;
+
     [SerializeField] private List<Enemy> _enemiesTemplate;
     [SerializeField] private List<Transform> _spawnPosition;
     [SerializeField] private float _delayTimeToSpawn;
-
-    public UnityAction<Enemy> OnEnemySpawn;
 
     private float _timeToSpawn;
 

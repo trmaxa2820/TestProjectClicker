@@ -4,7 +4,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(SaveLoadScore))]
 public class PlayerScore : MonoBehaviour
 {
-    public UnityAction<int> OnScoreChanged;
+    public event UnityAction<int> OnScoreChanged;
 
     [SerializeField] private Player _player;
     [SerializeField] private SaveLoadScore _saveLoadScore;

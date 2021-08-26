@@ -9,27 +9,27 @@ public class MoveState : State
 
     public Vector3 CurrentWayPoint { get; private set; }
 
+    private void OnEnable()
+    {
+        CurrentWayPoint = GetRandomWayPoint();
+        _enemyMover.Move(CurrentWayPoint);
+        Animator.SetBool(AnimationTriger, true);
+    }
+
     protected override void Awake()
     {
         base.Awake();
         _enemyMover = GetComponent<EnemyMover>();
     }
 
-    private void OnEnable()
-    {
-        CurrentWayPoint = GetRandomWayPoint();
-        _enemyMover.Move(CurrentWayPoint);
-        _animator.SetBool(_animationTrigger, true);
-    }
-
     private void OnDisable()
     {
-        _animator.SetBool(_animationTrigger, false);
+        Animator.SetBool(AnimationTriger, false);
     }
 
     private Vector3 GetRandomWayPoint()
     {
-        Transform wayPoint = _enemy.GetRandomTargets();
+        Transform wayPoint = Enemy.GetRandomTargets();
 
         return wayPoint.position;
     }

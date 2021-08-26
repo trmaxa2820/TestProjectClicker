@@ -7,7 +7,6 @@ public class GameMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _gameMenuPanel;
 
-
     private void Start()
     {
         _gameMenuPanel.SetActive(false);

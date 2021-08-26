@@ -18,6 +18,16 @@ public class OnLoadLevel : MonoBehaviour
         
     }
 
+    private void OnDisable()
+    {
+        _inputField.onEndEdit.RemoveListener(SetPlayerName);
+    }
+
+    private void Start()
+    {
+        _gameMusicAudioSource.Play();
+    }
+
     public void OpenKeyboard()
     {
         TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false, false, true);
@@ -30,13 +40,4 @@ public class OnLoadLevel : MonoBehaviour
         _inputField.gameObject.SetActive(false);
     }
 
-    private void OnDisable()
-    {
-        _inputField.onEndEdit.RemoveListener(SetPlayerName);
-    }
-
-    private void Start()
-    {
-        _gameMusicAudioSource.Play();
-    }
 }

@@ -31,6 +31,7 @@ public class EnemyMover : MonoBehaviour
         if (_targetPosition == targetPosition)
             return;
 
+        _targetPosition = targetPosition;
         _navMeshAgent.SetDestination(targetPosition);
     }
 
