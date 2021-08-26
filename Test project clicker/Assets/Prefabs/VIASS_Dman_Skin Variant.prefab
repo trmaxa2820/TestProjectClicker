@@ -66,7 +66,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9a989d787491b44be83007092f18b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Transitions: []
+  Transitions:
+  - {fileID: 5486621285394776858}
   AnimationTriger: 
 --- !u!114 &4434240034787344846
 MonoBehaviour:
@@ -80,8 +81,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f9fddec98c1bd4189842ecfb738187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Transitions: []
-  AnimationTriger: Dizzy
+  Transitions:
+  - {fileID: 3196344587956869251}
+  AnimationTriger: Run
 --- !u!114 &5486621285394776858
 MonoBehaviour:
   m_ObjectHideFlags: 0
